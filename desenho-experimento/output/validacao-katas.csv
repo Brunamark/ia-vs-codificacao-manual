@@ -1,0 +1,5 @@
+kata,tests_total,tests_passing,tests_failures,referencia_green,esqueleto_falha,hash_ok,duracao_seg,status
+kata1-cinema,10,10,0,true,true,true,5.9,OK
+kata2-torneio-luta,10,10,0,true,true,true,6.5,OK
+kata3-calorias,10,10,0,true,true,true,6.2,OK
+kata4-gastos,10,10,0,true,true,true,5.8,OK

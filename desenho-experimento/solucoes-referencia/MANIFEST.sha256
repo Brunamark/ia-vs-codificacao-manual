@@ -1,0 +1,6 @@
+# SHA-256 dos arquivos de teste de aceitacao (quebras de linha normalizadas para LF).
+# Gerado por scripts/gerar_manifesto.py — confira com scripts/check_katas.py.
+6468594efaa313f10bbde1d834d258d0ea55cc9fa224f9e71f07eedde284aa1a  katas/kata1-cinema/src/test/java/kata/BilheteriaTest.java
+533c9de51132a1987aae487947ab8ad742c97d1e4c7a8429f3c1d87a08df6ac7  katas/kata2-torneio-luta/src/test/java/kata/TorneioLutaTest.java
+5456c7d6b1efe81e146a15f17241ce5c145e45197423dddc2086e6cc19859ede  katas/kata3-calorias/src/test/java/kata/ContadorCaloriasTest.java
+7a2d82720d4c05561ce3d42b5fa6bcd301ff145303e4b5bac59916f32e3b4faf  katas/kata4-gastos/src/test/java/kata/OrganizadorGastosTest.java

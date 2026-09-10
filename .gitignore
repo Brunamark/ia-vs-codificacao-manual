@@ -9,6 +9,12 @@
 rq1-rq2-tempo-e-testes/output/*
 !rq1-rq2-tempo-e-testes/output/.gitkeep
 
+### Desenho do experimento — katas e validação ###
+# build do Maven nos esqueletos dos katas
+desenho-experimento/katas/*/target/
+# logs do Maven salvos pelo check_katas quando uma verificação falha (reprodutíveis)
+desenho-experimento/output/raw/
+
 ### RQ3 — métricas estáticas ###
 # ferramentas baixadas/compiladas sob demanda — ver rq3-metricas-estaticas/README.md
 rq3-metricas-estaticas/tools/*

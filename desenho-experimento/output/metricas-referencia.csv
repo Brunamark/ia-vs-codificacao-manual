@@ -1,0 +1,5 @@
+trial,loc,qtd_metodos,wmc_medio_por_metodo,linhas_duplicadas,duplicacao_percentual
+kata1-cinema,48,3,2.333,0,0.0
+kata2-torneio-luta,72,3,2.667,0,0.0
+kata3-calorias,53,2,4.0,0,0.0
+kata4-gastos,41,3,2.333,0,0.0
