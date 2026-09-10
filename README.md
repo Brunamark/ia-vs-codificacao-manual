@@ -1,72 +1,17 @@
-# TrialTimer — Cronômetro de Trials (Lab02 · S01)
+# ia-vs-codificacao-manual
 
-Script de cronometragem para o experimento **Assistentes de IA vs. codificação manual**.
-Registra o *time-to-green* (métrica primária da **RQ1**), a taxa de testes passando (**RQ2**)
-e o número de prompts com o assistente de IA (métrica exploratória).
+Laboratório de experimentação: **assistentes de IA vs. codificação manual**
+na resolução de katas. O repositório está organizado por questão de pesquisa
+(RQ), cada uma com seu próprio ambiente, script e README:
 
-## Requisitos
+- [`rq1-rq2-tempo-e-testes/`](rq1-rq2-tempo-e-testes/README.md) — **RQ1** (time-to-green)
+  e **RQ2** (taxa de testes passando), coletadas em tempo real durante o trial
+  com o `TrialTimer`.
+- [`rq3-metricas-estaticas/`](rq3-metricas-estaticas/README.md) — **RQ3**
+  (complexidade ciclomática média/WMC via CK, % de linhas duplicadas via PMD
+  CPD, e LOC como métrica de controle), coletadas sobre o código final de
+  cada trial.
 
-- **JDK 11+** (sem dependências externas)
-- Testes automatizados que imprimam o padrão JUnit: `Tests run: X, Failures: Y, Errors: Z`
-  (Maven Surefire, Gradle e JUnit Console Launcher são compatíveis)
-
-## Compilação
-
-```bash
-javac TrialTimer.java
-```
-
-## Uso
-
-```bash
-java TrialTimer --member ana --kata kata1 --trial 1     --treatment ia --test-cmd "mvn -q test" --caminho/do/projeto
-```
-
-| Parâmetro | Obrigatório | Descrição |
-|---|---|---|
-| `--member` | sim | Identificador do integrante |
-| `--kata` | sim | Identificador do kata (ex.: `kata1`) |
-| `--trial` | sim | Número do trial |
-| `--treatment` | sim | `ia` ou `manual` |
-| `--test-cmd` | sim | Comando que executa os testes de aceitação |
-| `--timebox` | não | Time-box em minutos (padrão **35**; só pode ser reduzido) |
-| `--cwd` | não | Diretório onde os testes rodam (padrão: diretório atual) |
-
-### Comandos durante o trial
-
-| Tecla | Ação |
-|---|---|
-| `p` + Enter | Registra 1 interação/prompt com o assistente de IA |
-| `s` + Enter | Mostra status (tempo, testes, prompts) |
-| `q` + Enter | Aborta o trial (registra `aborted=true`; usar apenas em problema real) |
-
-## Regras do experimento implementadas
-
-- **Time-box fixo de 35 min** — o script recusa `--timebox` maior que 35.
-- **Censura, não descarte** — trial que atinge o time-box sem ficar "green" é registrado
-  como `35:00` com `censored=true`, conforme o roteiro.
-- **Verificação a cada 5 s** — a execução dos testes ocupa alguns segundos; como o custo é
-  idêntico nos dois tratamentos, não enviesa a comparação (registrado como observação metodológica).
-
-## Saídas
-
-1. **`results.csv`** (append — um trial por linha), com as colunas:
-   `date, member, kata, trial, treatment, test_cmd, timebox_min, time_to_green_sec,
-   time_to_green_mmss, censored, aborted, tests_total, tests_passing, tests_failures,
-   test_success_rate, prompts` — pronto para Pandas na S03.
-2. **`logs/<kata>_t<trial>_<tratamento>_<timestamp>.json`** — log detalhado do trial.
-
-## Exemplos de `--test-cmd`
-
-```bash
-# Maven
-java TrialTimer --member ana --kata kata1 --trial 1 --treatment ia --test-cmd "mvn -q test"
-
-# Gradle
-java TrialTimer --member ana --kata kata2 --trial 2 --treatment manual --test-cmd "gradle test --console=plain"
-
-# JUnit Console Launcher (sem Maven/Gradle)
-java TrialTimer --member bruno --kata kata3 --trial 1 --treatment ia     --test-cmd "java -jar junit-platform-console-standalone-1.10.0.jar execute -c com.lab.Kata3Test"
-```
-
-> **Nota:** o script detecta automaticamente o shell do sistema (sh/cmd) para executar o comando.
+Cada pasta tem seu próprio `scripts/` (código versionado) e `output/`
+(resultados — o que é reprodutível fica fora do git; CSVs de exemplo/consolidados
+ficam versionados). Veja o README de cada RQ para requisitos, setup e uso.

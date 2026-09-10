@@ -1,0 +1,17 @@
+### IDE ###
+.idea/
+*.iml
+
+### Java ###
+*.class
+
+### RQ1/RQ2 — TrialTimer (saída gerada em runtime) ###
+rq1-rq2-tempo-e-testes/output/*
+!rq1-rq2-tempo-e-testes/output/.gitkeep
+
+### RQ3 — métricas estáticas ###
+# ferramentas baixadas/compiladas sob demanda — ver rq3-metricas-estaticas/README.md
+rq3-metricas-estaticas/tools/*
+!rq3-metricas-estaticas/tools/.gitkeep
+# saída bruta do CK/PMD (reprodutível a partir do script); o CSV final ainda é versionado
+rq3-metricas-estaticas/output/raw/
