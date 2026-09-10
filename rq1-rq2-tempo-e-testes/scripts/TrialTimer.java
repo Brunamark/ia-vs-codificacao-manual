@@ -19,9 +19,10 @@
  *   s  -> mostra o status atual (tempo, testes, prompts)
  *   q  -> aborta o trial (registra aborted=true; use apenas em caso de problema real)
  *
- * Saída:
- *   - results.csv : uma linha por trial (append), pronto para Pandas na S03
- *   - logs/<kata>_t<trial>_<tratamento>_<timestamp>.json : log detalhado do trial
+ * Saída (relativa ao diretório de onde o comando é executado — rode a partir
+ * de rq1-rq2-tempo-e-testes/ para que caia em output/, junto do restante do lab):
+ *   - output/results.csv : uma linha por trial (append), pronto para Pandas na S03
+ *   - output/logs/<kata>_t<trial>_<tratamento>_<timestamp>.json : log detalhado do trial
  */
 
 import java.io.BufferedReader;
@@ -49,7 +50,8 @@ public class TrialTimer {
 
     static final int TIMEBOX_DEFAULT_MIN = 35; // time-box fixo do roteiro: só pode ser reduzido
     static final int POLL_INTERVAL_SEC = 5;
-    static final String RESULTS_CSV = "results.csv";
+    static final String RESULTS_CSV = "output/results.csv";
+    static final String LOGS_DIR = "output/logs";
 
     /** Padrões de saída do JUnit / Maven Surefire / Gradle: "Tests run: 10, Failures: 1, Errors: 0, Skipped: 0" */
     static final Pattern TESTS_RUN  = Pattern.compile("Tests run:\\s*(\\d+)");
@@ -91,9 +93,9 @@ public class TrialTimer {
         }
         static void usage(String msg) {
             System.err.println("ERRO: " + msg + "\n");
-            System.err.println("Uso: java TrialTimer --member NOME --kata kataX --trial N \\");
+            System.err.println("Uso: java -cp scripts TrialTimer --member NOME --kata kataX --trial N \\");
             System.err.println("                     --treatment ia|manual --test-cmd \"mvn -q test\" \\");
-            System.err.println("                     [--timebox 35] [--caminho/do/projeto]");
+            System.err.println("                     [--timebox 35] [--cwd /caminho/do/projeto]");
             System.exit(1);
         }
     }
@@ -212,7 +214,7 @@ public class TrialTimer {
 
         synchronized void finish(String reason) {
             if (finished.get()) return;
-            finished.set();
+            finished.set(true);
             finishReason = reason;
             double elapsed = Math.min(elapsedSec(), timeboxSec); // censura: nunca passa do time-box
             TestResult r = runTests(); // medida final (garante contagens mesmo no timeout/abort)
@@ -263,6 +265,7 @@ public class TrialTimer {
 
         void saveCsv(Map<String, Object> res) throws IOException {
             Path csv = Paths.get(RESULTS_CSV);
+            Files.createDirectories(csv.getParent());
             List<String> lines = new ArrayList<>();
             if (!Files.exists(csv))
                 lines.add(String.join(",", res.keySet()));
@@ -277,7 +280,7 @@ public class TrialTimer {
         }
 
         void saveJson(Map<String, Object> res) throws IOException {
-            Path dir = Paths.get("logs");
+            Path dir = Paths.get(LOGS_DIR);
             Files.createDirectories(dir);
             String ts = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
             Path log = dir.resolve(String.format("%s_t%d_%s_%s.json",
