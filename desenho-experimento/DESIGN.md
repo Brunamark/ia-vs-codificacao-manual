@@ -336,6 +336,23 @@ reportado como "não foi possível rejeitar H0 com este N" — nunca como "não 
 | 14 | **Generalização** — 3 estudantes, 4 katas, uma linguagem, um assistente | Externa | Escopo declarado explicitamente; nenhuma extrapolação para "desenvolvimento profissional" ou "IA em geral" |
 | 15 | **Experimentadores são os sujeitos** — o grupo conhece as hipóteses | Externa / Interna | Desenho, katas e critérios fixados **antes** do primeiro trial (este documento); métricas coletadas por script, sem julgamento humano |
 
+> **Caso concreto da ameaça #15, declarado em 2026-09-17.** O integrante **Thiago é o autor dos
+> 4 katas e das 4 soluções de referência** (commit `27e27b0`, 2026-09-10) e também é sujeito dos
+> trials 1–4 da sua sequência. Ele não apenas conhece as hipóteses: **já resolveu os quatro
+> problemas**. Isso encurta o tempo dele nos dois tratamentos, de forma assimétrica em relação
+> aos outros dois integrantes.
+>
+> *Por que o dado ainda é utilizável:* o pareamento da §9.2 é **intra-integrante**, e o teste de
+> Wilcoxon opera sobre a diferença *dentro* de cada par. O conhecimento prévio acelera tanto o
+> trial `ia` quanto o `manual` do mesmo par, então o efeito se cancela em boa parte na
+> diferença — que é exatamente a grandeza testada. O que ele contamina é o **nível** absoluto
+> dos tempos do Thiago, não o sinal da diferença.
+>
+> *Mitigações adotadas:* (i) `solucoes-referencia/` não é reaberta antes nem durante os trials;
+> (ii) os enunciados só são relidos no passo 5 do protocolo, fora do cronômetro; (iii) os tempos
+> absolutos do Thiago não são comparados com os da Bruna e do Pedro na estatística descritiva
+> sem essa ressalva; (iv) a limitação é reportada no relatório final.
+
 ---
 
 ## 11. Instrumentação
@@ -349,10 +366,26 @@ reportado como "não foi possível rejeitar H0 com este N" — nunca como "não 
 | Build e testes | Maven + Surefire + JUnit 5 | Maven 3.9.11; Surefire 3.2.5; JUnit 5.10.2 | Maven é necessário porque o Surefire imprime `Tests run: X, Failures: Y, Errors: Z`, padrão que o `TrialTimer` lê |
 | Análise estatística | Python + Pandas + SciPy | S03 | Wilcoxon, mediana/IQR |
 | Dashboard | Pandas + Matplotlib/Seaborn | S03 | Passo 6 do roteiro |
-| **Assistente de IA** | *a definir pelo trio na S01* | *registrar versão exata* | Tratamento `ia` — deve ser o mesmo em todos os trials |
+| **Assistente de IA** | Claude (Anthropic), pelo chat do **claude.ai** no navegador | **Sonnet 5** (`claude-sonnet-5`) | Tratamento `ia` — deve ser o mesmo em todos os trials |
 
-> A ferramenta de IA e sua versão precisam estar preenchidas nesta tabela **antes** do primeiro
-> trial da S02. É o único item pendente deste documento.
+> **Decidido pelo trio em 2026-09-17:** Claude (Anthropic) pelo chat do **claude.ai**,
+> modelo **Sonnet 5**. Registrado aqui após o início da coleta — ver §14.
+>
+> **Consequência para o protocolo.** O claude.ai não tem acesso ao sistema de arquivos: o
+> participante transfere enunciado, código e saída dos testes manualmente (copiar/colar). Isso
+> tem dois efeitos declarados: (i) elimina por construção a ameaça #2 (vazamento pelo
+> repositório) no tratamento `ia`, porque o assistente só vê o que for colado; (ii) inclui o
+> custo de transferência **dentro** do time-box, que um assistente integrado à IDE não teria.
+> O (ii) faz parte do tratamento medido — "usar um assistente pelo chat" — e não é confundidor
+> em relação ao `manual`, mas limita a generalização: os resultados não se estendem a
+> assistentes integrados à IDE (autocompletar inline, leitura automática de contexto).
+> Registrar essa distinção ao discutir a ameaça #14 no relatório.
+>
+> ✅ **Uniformidade confirmada em 2026-09-17.** A Bruna executou os 4 trials dela com a mesma
+> instrumentação — Claude pelo chat do claude.ai, modelo Sonnet 5. A
+> [ameaça #6](#10-h-ameaças-à-validade) (familiaridade/ferramenta desigual) fica mitigada como
+> previsto: mesma ferramenta, mesma interface e mesmo modelo nos 12 trials. Falta apenas o
+> Pedro seguir o mesmo procedimento.
 
 ---
 
@@ -398,4 +431,7 @@ final como desvio de protocolo.
 
 | Data | Alteração | Motivo |
 |---|---|---|
+| 2026-09-17 | §11 — preenchida a linha do assistente de IA: Claude via claude.ai, modelo Sonnet 5 | O campo estava como *a definir* e o documento previa que fosse fechado antes do primeiro trial da S02; a decisão do trio só saiu depois que a Bruna já havia executado os trials dela. Registrado como desvio de protocolo: a instrumentação do tratamento `ia` não estava fixada quando a coleta começou |
+| 2026-09-17 | §11 — declarada a consequência do uso do chat (transferência manual dentro do time-box; limite de generalização para assistentes integrados à IDE) | A escolha da interface altera o que o tratamento `ia` de fato mede; precisa estar explícita antes da análise, não ser descoberta na discussão dos resultados |
+| 2026-09-17 | §10 — nota acrescentada após a tabela de ameaças, declarando que o autor dos katas e das soluções de referência é também sujeito dos trials 1–4 da sequência do Thiago | A ameaça #15 cobria "experimentadores conhecem as hipóteses"; o caso concreto é mais forte e precisa ser nomeado |
 | — | — | — |
