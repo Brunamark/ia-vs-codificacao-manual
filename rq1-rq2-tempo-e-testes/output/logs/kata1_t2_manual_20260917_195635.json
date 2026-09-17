@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-17T19:56:35.4042057",
+  "member": "thiago",
+  "kata": "kata1",
+  "trial": 2,
+  "treatment": "manual",
+  "test_cmd": "mvn -B test",
+  "timebox_min": 35,
+  "time_to_green_sec": 681.5,
+  "time_to_green_mmss": "11:21",
+  "censored": false,
+  "aborted": false,
+  "tests_total": 10,
+  "tests_passing": 10,
+  "tests_failures": 0,
+  "test_success_rate": 1.0,
+  "prompts": 0
+}

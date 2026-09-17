@@ -22,8 +22,13 @@ javac scripts/TrialTimer.java
 ## Uso
 
 ```bash
-java -cp scripts TrialTimer --member ana --kata kata1 --trial 1 --treatment ia --test-cmd "mvn -q test" --cwd /caminho/do/projeto
+java -cp scripts TrialTimer --member ana --kata kata1 --trial 1 --treatment ia --test-cmd "mvn -B test" --cwd /caminho/do/projeto
 ```
+
+> ⚠️ **Nunca use `mvn -q test`.** Com `-q` o Surefire não imprime
+> `Tests run: X, Failures: Y, Errors: Z`, e o `TrialTimer` exige `run > 0` para declarar
+> *green* — todo trial rodado assim seria censurado em 35:00 com a RQ2 zerada.
+> Use sempre `mvn -B test`. (Confirmado empiricamente com Maven 3.9.11 + Surefire 3.2.5.)
 
 | Parâmetro | Obrigatório | Descrição |
 |---|---|---|
@@ -63,7 +68,7 @@ java -cp scripts TrialTimer --member ana --kata kata1 --trial 1 --treatment ia -
 
 ```bash
 # Maven
-java -cp scripts TrialTimer --member ana --kata kata1 --trial 1 --treatment ia --test-cmd "mvn -q test"
+java -cp scripts TrialTimer --member ana --kata kata1 --trial 1 --treatment ia --test-cmd "mvn -B test"
 
 # Gradle
 java -cp scripts TrialTimer --member ana --kata kata2 --trial 2 --treatment manual --test-cmd "gradle test --console=plain"

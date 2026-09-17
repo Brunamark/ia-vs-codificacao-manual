@@ -8,6 +8,12 @@
 ### RQ1/RQ2 — TrialTimer (saída gerada em runtime) ###
 rq1-rq2-tempo-e-testes/output/*
 !rq1-rq2-tempo-e-testes/output/.gitkeep
+# results.csv e os logs JSON são DADO BRUTO do experimento (DESIGN.md §13),
+# não artefato reprodutível: um trial perdido não pode ser refeito (ameaça #7).
+!rq1-rq2-tempo-e-testes/output/results.csv
+!rq1-rq2-tempo-e-testes/output/logs/
+# errata da coleta: documenta toda correcao aplicada ao results.csv
+!rq1-rq2-tempo-e-testes/output/CORRECOES.md
 
 ### Desenho do experimento — katas e validação ###
 # build do Maven nos esqueletos dos katas
@@ -21,3 +27,5 @@ rq3-metricas-estaticas/tools/*
 !rq3-metricas-estaticas/tools/.gitkeep
 # saída bruta do CK/PMD (reprodutível a partir do script); o CSV final ainda é versionado
 rq3-metricas-estaticas/output/raw/
+# build do Maven dentro dos trials — artefato, não código produzido pelo participante
+rq3-metricas-estaticas/trials/*/target/
