@@ -4,6 +4,10 @@ Laboratório de experimentação: **assistentes de IA vs. codificação manual**
 na resolução de katas. O repositório está organizado por questão de pesquisa
 (RQ), cada uma com seu próprio ambiente, script e README:
 
+- [`desenho-experimento/`](desenho-experimento/README.md) — **objeto experimental e desenho**:
+  os 4 katas autorais em Java (enunciado, projeto Maven e testes de aceitação), o
+  `check_katas.py` que os valida, e o [`DESIGN.md`](desenho-experimento/DESIGN.md) com
+  hipóteses, variáveis, contrabalanceamento e ameaças à validade (Passo 1 do roteiro).
 - [`rq1-rq2-tempo-e-testes/`](rq1-rq2-tempo-e-testes/README.md) — **RQ1** (time-to-green)
   e **RQ2** (taxa de testes passando), coletadas em tempo real durante o trial
   com o `TrialTimer`.
