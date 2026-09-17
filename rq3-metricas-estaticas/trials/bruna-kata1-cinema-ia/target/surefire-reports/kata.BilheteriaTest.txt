@@ -1,0 +1,84 @@
+-------------------------------------------------------------------------------
+Test set: kata.BilheteriaTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 0, Errors: 10, Skipped: 0, Time elapsed: 0.051 s <<< FAILURE! -- in kata.BilheteriaTest
+kata.BilheteriaTest.ingressoInteira3dSomaOsOculos -- Time elapsed: 0.016 s <<< ERROR!
+java.lang.UnsupportedOperationException: nao implementado
+	at kata.Bilheteria.totalCentavos(Bilheteria.java:21)
+	at kata.BilheteriaTest.ingressoInteira3dSomaOsOculos(BilheteriaTest.java:39)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+kata.BilheteriaTest.meiaEntrada3dSomaOculosIntegrais -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: nao implementado
+	at kata.Bilheteria.totalCentavos(Bilheteria.java:21)
+	at kata.BilheteriaTest.meiaEntrada3dSomaOculosIntegrais(BilheteriaTest.java:45)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+kata.BilheteriaTest.oculos3dSaoCobradosPorIngresso -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: nao implementado
+	at kata.Bilheteria.totalCentavos(Bilheteria.java:21)
+	at kata.BilheteriaTest.oculos3dSaoCobradosPorIngresso(BilheteriaTest.java:69)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+kata.BilheteriaTest.diaDoCinemaTransformaInteiraEmMeia -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException: nao implementado
+	at kata.Bilheteria.totalCentavos(Bilheteria.java:21)
+	at kata.BilheteriaTest.diaDoCinemaTransformaInteiraEmMeia(BilheteriaTest.java:51)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+kata.BilheteriaTest.meiaEntradaNaoAcumulaComDiaDoCinema -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: nao implementado
+	at kata.Bilheteria.totalCentavos(Bilheteria.java:21)
+	at kata.BilheteriaTest.meiaEntradaNaoAcumulaComDiaDoCinema(BilheteriaTest.java:57)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+kata.BilheteriaTest.meiaEntrada2dArredondaParaBaixo -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: nao implementado
+	at kata.Bilheteria.totalCentavos(Bilheteria.java:21)
+	at kata.BilheteriaTest.meiaEntrada2dArredondaParaBaixo(BilheteriaTest.java:33)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+kata.BilheteriaTest.vendaComSessoesCategoriasEDiasVariados -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: nao implementado
+	at kata.Bilheteria.totalCentavos(Bilheteria.java:21)
+	at kata.BilheteriaTest.vendaComSessoesCategoriasEDiasVariados(BilheteriaTest.java:80)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+kata.BilheteriaTest.meiaNaoAcumulaEm3dComOculosForaDoDesconto -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: nao implementado
+	at kata.Bilheteria.totalCentavos(Bilheteria.java:21)
+	at kata.BilheteriaTest.meiaNaoAcumulaEm3dComOculosForaDoDesconto(BilheteriaTest.java:63)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+kata.BilheteriaTest.ingressoInteira2dCustaPrecoCheio -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: nao implementado
+	at kata.Bilheteria.totalCentavos(Bilheteria.java:21)
+	at kata.BilheteriaTest.ingressoInteira2dCustaPrecoCheio(BilheteriaTest.java:27)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+kata.BilheteriaTest.listaVaziaArrecadaZero -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException: nao implementado
+	at kata.Bilheteria.totalCentavos(Bilheteria.java:21)
+	at kata.BilheteriaTest.listaVaziaArrecadaZero(BilheteriaTest.java:21)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
