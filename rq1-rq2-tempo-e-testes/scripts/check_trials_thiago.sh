@@ -2,9 +2,20 @@
 #
 # check_trials_thiago.sh
 #
-# Verificação dos trials do Thiago (Lab02 · S02 · Issue #8), implementando as
-# seções 4 e 5 do PLANO-ISSUE-8.md. Rode depois de CADA trial (pega problema
-# cedo, enquanto ainda dá para corrigir o ambiente) e de novo antes de commitar.
+# Verificação dos trials do Thiago (Lab02 · S02 · Issue #8) contra o protocolo
+# do experimento (desenho-experimento/DESIGN.md, seções 5, 7 e 12).
+#
+# Rodar depois de CADA trial — pega problema de ambiente cedo, enquanto ainda dá
+# para corrigir — e de novo antes de commitar.
+#
+# Confere, por trial: tratamento e kata segundo a sequência da §7; test_cmd sem
+# -q; time-box de 35 min; leitura do Surefire (tests_total); censura e abort;
+# contagem de prompts coerente com o tratamento; log JSON presente; código final
+# copiado para trials/ sem target/ versionável; e integridade dos arquivos de
+# teste, que são imutáveis (§5).
+#
+# Confere, no geral: se results.csv e output/logs/ estão versionáveis pelo git
+# (são dado bruto, §13) e se a instrumentação do assistente foi registrada (§11).
 #
 # Uso (a partir da RAIZ do repositório):
 #   ./rq1-rq2-tempo-e-testes/scripts/check_trials_thiago.sh
@@ -82,7 +93,7 @@ for t in "${TRIALS[@]}"; do
   n_linhas="$(grep -c ",${MEMBER},${kata_id},${trial_num}," "$RESULTS_CSV")"
   [ "$n_linhas" -gt 1 ] && aviso "há $n_linhas linhas para este trial no results.csv — conferir duplicata"
 
-  # --- conferências do results.csv (PLANO-ISSUE-8.md §4) ---
+  # --- conferências do results.csv ---
   v_tratamento="$(coluna "$linha" treatment)"
   v_testcmd="$(coluna "$linha" test_cmd)"
   v_timebox="$(coluna "$linha" timebox_min)"
@@ -181,7 +192,7 @@ n_trials="$(grep -c ",${MEMBER}," "$RESULTS_CSV" 2>/dev/null || echo 0)"
 echo "  Trials do $MEMBER em results.csv: $n_trials de 4"
 
 if git -C "$REPO_ROOT" check-ignore -q "$RESULTS_CSV" 2>/dev/null; then
-  falha "results.csv está sendo IGNORADO pelo git — corrija o .gitignore (PLANO-ISSUE-8.md §1.1) antes de commitar"
+  falha "results.csv está sendo IGNORADO pelo git — é dado bruto versionado (DESIGN.md §13). Acrescente ao .gitignore, DEPOIS da regra que ignora output/: '!rq1-rq2-tempo-e-testes/output/results.csv' e '!rq1-rq2-tempo-e-testes/output/logs/'"
 else
   ok "results.csv é versionável pelo git"
 fi
@@ -195,7 +206,7 @@ fi
 # Casa o PLACEHOLDER original da §11, não a palavra solta: depois de preenchida,
 # a expressão "a definir" ainda aparece no texto do changelog da §14.
 if grep -q "a definir pelo trio" "$REPO_ROOT/desenho-experimento/DESIGN.md" 2>/dev/null; then
-  aviso "DESIGN.md §11 ainda tem 'a definir' — registre a ferramenta e a versão do assistente (PLANO-ISSUE-8.md §1.2)"
+  aviso "DESIGN.md §11 ainda tem 'a definir' — registre ferramenta, interface e versão do assistente antes do primeiro trial; depois disso o documento é congelado (§14)"
 else
   ok "DESIGN.md §11 preenchido"
 fi
