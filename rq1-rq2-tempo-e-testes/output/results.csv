@@ -1,0 +1,3 @@
+date,member,kata,trial,treatment,test_cmd,timebox_min,time_to_green_sec,time_to_green_mmss,censored,aborted,tests_total,tests_passing,tests_failures,test_success_rate,prompts
+2026-09-17T19:39:41.5811464,thiago,kata2,1,ia,mvn -B test,35,55.9,00:55,false,false,10,10,0,1.0,1
+2026-09-17T19:56:35.4042057,thiago,kata1,2,manual,mvn -B test,35,681.5,11:21,false,false,10,10,0,1.0,0
