@@ -1,0 +1,6 @@
+# Retry de pedro/kata3/trial 1 (manual) em 20260917_220536
+# Motivo: erro de compilacao por import esquecido (falha de instrumentacao, nao de desempenho)
+2026-09-17T21:33:41.7647001,pedro,kata3,1,manual,mvn -B test,35,581.3,09:41,false,true,0,0,0,0.0,0
+# Retry de pedro/kata2/trial 4 (ia) em 20260917_221301
+# Motivo: erro de compilacao por import esquecido (falha de instrumentacao, nao de desempenho)
+2026-09-17T21:55:11.7833781,pedro,kata2,4,ia,mvn -B test,35,309.2,05:09,false,true,0,0,0,0.0,2
