@@ -1,0 +1,5 @@
+alvo,mutantes,mutantes_mortos,mutantes_sobreviventes,mutation_score,cobertura_linhas,cobertura_branches
+kata2-torneio-luta-ia,25,23,2,0.92,1.0,1.0
+kata3-calorias-ia,11,9,2,0.8182,1.0,1.0
+kata1-cinema-manual,12,12,0,1.0,1.0,1.0
+kata4-gastos-manual,14,13,1,0.9286,1.0,1.0

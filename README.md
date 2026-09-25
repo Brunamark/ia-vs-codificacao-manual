@@ -170,6 +170,10 @@ tamanho amostral não permite rejeitar H0.
 magnitude: **67,2 s** (mediana, IA) contra **696,2 s** (mediana, manual), uma razão de ~10×,
 que é justamente o que levanta a suspeita de que as duas medidas não medem a mesma coisa.
 
+![RQ1 — tempo e iterações](analise-final/output/graficos/rq1-tempo-iteracoes.png)
+
+*Figura 1 — Tempo até o green e número de iterações por trial.*
+
 ### 6.2 RQ2, O uso de assistente de IA reduz a quantidade de defeitos no código produzido?
 
 **Constructo alvo:** o código produzido implementa exatamente o especificado, nem menos
@@ -216,6 +220,10 @@ com mais lógica do que o especificado e sem defeitos observados. A direção do
 manual, mas n = 2 por braço impede significância. Notavelmente, a RQ2 é a menos afetada pelo
 confundimento entre tratamento e kata, porque suas métricas (mutation score, cobertura) operam
 por artefato isolado, sem depender de comparação entre katas diferentes.
+
+![RQ2 — mutation score](analise-final/output/graficos/rq2-mutation-score.jpeg)
+
+*Figura 2 — Mutation score por trial e tratamento.*
 
 ### 6.3 RQ3, O uso de assistente de IA altera a complexidade ciclomática ou a duplicação do código produzido?
 
