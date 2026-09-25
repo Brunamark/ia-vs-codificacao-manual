@@ -29,3 +29,7 @@ rq3-metricas-estaticas/tools/*
 rq3-metricas-estaticas/output/raw/
 # build do Maven dentro dos trials — artefato, não código produzido pelo participante
 rq3-metricas-estaticas/trials/*/target/
+
+### Análise final — dashboard ###
+# os CSVs de entrada e os PNGs em output/graficos/ são versionados
+analise-final/scripts/**/__pycache__/
