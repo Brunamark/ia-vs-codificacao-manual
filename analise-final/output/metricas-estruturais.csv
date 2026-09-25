@@ -1,0 +1,5 @@
+alvo,metodos,metodos_privados,wmc_medio,wmc_max,wmc_total,aninhamento_max,palavras_unicas,metodos_javadoc,constantes_static_final,lambdas,code_smells_100loc,duplicacao_percentual
+kata2-torneio-luta-ia,2,0,4.0,7,8,3,24,0,0,4,1.45,0.0
+kata3-calorias-ia,1,0,8.0,8,8,2,25,0,1,0,2.04,0.0
+kata1-cinema-manual,3,2,2.33,4,7,1,66,1,3,0,10.42,0.0
+kata4-gastos-manual,3,2,2.33,4,7,1,46,1,0,0,2.44,0.0
