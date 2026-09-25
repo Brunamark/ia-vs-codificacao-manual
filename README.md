@@ -275,6 +275,10 @@ kata pesa mais nesta RQ do que nas outras, pois vocabulário e estrutura depende
 cada kata, e a vantagem de decomposição observada pode estar superestimada pelo fato de o
 participante ser autor dos katas (ver seção 8).
 
+![RQ3 — complexidade total versus decomposição](analise-final/output/graficos/rq-complexidade-total-vs-decomposição.jpeg)
+
+*Figura 3 — Complexidade total e distribuição da complexidade por método.*
+
 ---
 
 ## 7. Discussão
